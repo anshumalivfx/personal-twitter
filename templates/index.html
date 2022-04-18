@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mera Personal Twitter</title>
+    <style>
+      .twitterButton {
+        background-color: #1da1f2;
+        border-radius: 10px;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.25;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        outline: none;
+        border: none;
+      }
+      .twitterButton:hover {
+        background-color: #00aced;
+      }
+      .twitterButton:active {
+        background-color: #0084b4;
+      }
+      .tweet-text {
+        font-size: 14px;
+        line-height: 1.25;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+        text-align: left;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+      .tweet-text:hover {
+        text-decoration: underline;
+      }
+      .tweet-text:active {
+        text-decoration: underline;
+      }
+      .tweet-text:focus {
+        outline: 0;
+      }
+      .success {
+        color: green;
+        font-size: 14px;
+        line-height: 1.25;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+      .error {
+        color: red;
+        font-size: 14px;
+        line-height: 1.25;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+      .twitter-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        color: #1da1f2;
+      }
+
+      .new-tweet {
+        font-size: 14px;
+        line-height: 1.25;
+        margin-bottom: 0;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+      }
+
+      .auto_height {
+        /* CSS */
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="twitter-title">Mera Personal Twitter</h1>
+    <form action="/tweet" method="post" class="new-tweet">
+      <textarea
+        rows="5"
+        class="tweet-text"
+        name="tweet"
+        oninput="auto_height(this)"
+      ></textarea
+      ><br />
+      <br />
+      <input type="submit" value="Tweet" class="twitterButton" />
+    </form>
+
+    {% if success %}
+    <p class="success">{{success}}</p>
+    {% endif %} {% if error %}
+    <p class="error">Error posting tweet!</p>
+    {% endif %}
+  </body>
+  <script>
+    function auto_height(elem) {
+      /* javascript */
+      elem.style.height = "1px";
+      elem.style.height = elem.scrollHeight + "px";
+    }
+  </script>
+</html>
